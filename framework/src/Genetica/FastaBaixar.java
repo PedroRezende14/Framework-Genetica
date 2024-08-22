@@ -50,7 +50,7 @@ public class FastaBaixar{
      * @return Uma String contendo o conteúdo FASTA, ou null se não for encontrado.
      */
     
-    public static String getFastaContent(String scientificName) {
+    private static String getFastaContent(String scientificName) {
     	// Implementação do método
         try {
             String encodedName = URLEncoder.encode(scientificName, StandardCharsets.UTF_8.toString());
@@ -84,7 +84,7 @@ public class FastaBaixar{
      * @throws Exception Se ocorrer um erro durante a requisição.
      */
     
-    public static String sendGetRequest(String urlString) throws Exception {
+    private static String sendGetRequest(String urlString) throws Exception {
     	 // Implementação do método
         URL url = new URL(urlString);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -122,7 +122,7 @@ public class FastaBaixar{
      * @return O ID da sequência como uma String, ou null se não for encontrado.
      */
     
-    public static String extractIdFromXml(String xmlResponse) {
+    private static String extractIdFromXml(String xmlResponse) {
         // Implementação do método
         if (xmlResponse == null) {
             return null;
@@ -145,7 +145,7 @@ public class FastaBaixar{
      * @param scientificName O nome científico da espécie, usado para nomear o arquivo.
      * @param fastaContent O conteúdo FASTA a ser salvo.
      */
-    public static void saveFastaFile(String scientificName, String fastaContent) {
+    private static void saveFastaFile(String scientificName, String fastaContent) {
     	// Implementação do método
         try (FileWriter fileWriter = new FileWriter(scientificName + ".fasta")) {
             fileWriter.write(fastaContent);
@@ -161,7 +161,7 @@ public class FastaBaixar{
      * @param scientificName O nome científico da espécie.
      * @return true se o arquivo não existir e puder ser baixado, false caso contrário.
      */
-    public static boolean Verificado(String scientificName) {
+    private static boolean Verificado(String scientificName) {
         // Implementação do método
     		String fasta = scientificName+".fasta";
             File arquivo = new File(fasta);
