@@ -54,7 +54,7 @@ public class Codon{
      * @return A sequência de DNA como uma String.
      * @throws IOException Se ocorrer um erro na leitura do arquivo.
      */
-    private static String readFastaSequence(String filename) throws IOException {
+    public static String readFastaSequence(String filename) throws IOException {
         // Implementação do método
         StringBuilder sequence = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
@@ -81,7 +81,7 @@ public class Codon{
      * @return Um Map contendo os códons como chaves e suas frequências como valores.
      */
 
-    private static Map<String, Integer> calculateCodonFrequency(String sequence) {
+    public static Map<String, Integer> calculateCodonFrequency(String sequence) {
     	   // Implementação do método
         Map<String, Integer> codonFrequency = new HashMap<>();
         for (int i = 0; i < sequence.length() - 2; i += 3) {
@@ -100,7 +100,7 @@ public class Codon{
      * @return Uma String contendo o relatório de análise.
      */
     
-    private static String generateCodonFrequencyAnalysis(Map<String, Integer> codonFrequency, String filename) {
+    static String generateCodonFrequencyAnalysis(Map<String, Integer> codonFrequency, String filename) {
     	  // Implementação do método
         StringBuilder result = new StringBuilder();
         result.append("Análise de frequência de códons para ").append(filename).append(":\n");
@@ -126,7 +126,7 @@ public class Codon{
      * @return O nome do aminoácido correspondente ao códon.
      */
 
-    private static String getAminoacid(String codon) {
+    public static String getAminoacid(String codon) {
     	 // Implementação do método
         // Tabela simplificada de códons para aminoácidos
     	switch (codon) {
@@ -182,7 +182,7 @@ public class Codon{
      * @param fileName O nome do arquivo de saída.
      * @throws IOException Se ocorrer um erro na escrita do arquivo.
      */
-    private static void writeAnalysisToFile(String content, String fileName) throws IOException {
+    public static void writeAnalysisToFile(String content, String fileName) throws IOException {
         try (FileWriter writer = new FileWriter(fileName)) {
             writer.write(content);
         }

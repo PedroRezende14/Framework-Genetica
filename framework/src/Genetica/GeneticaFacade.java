@@ -8,16 +8,13 @@ package Genetica;
  */
 public class GeneticaFacade{
     private FastaBaixar fastaBaixar;
-    private FastaComparar fastaComparar;
-    private Codon Codon;
+
 
     /**
      * Construtor que inicializa as classes necessárias para as análises.
      */
     public GeneticaFacade() {
         this.fastaBaixar = new FastaBaixar();
-        this.fastaComparar = new FastaComparar();
-        this.Codon = new Codon();
     }
 
     /**
@@ -45,7 +42,7 @@ public class GeneticaFacade{
      * @param fastaFile O nome do arquivo FASTA a ser analisado.
      */
     public void CodonAnalise(String fastaFile) {
-        Codon.CodonAnalise(fastaFile);
+        Genetica.Codon.CodonAnalise(fastaFile);
     }
 
     /**

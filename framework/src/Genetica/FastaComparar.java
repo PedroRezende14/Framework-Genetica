@@ -24,8 +24,6 @@ public class FastaComparar {
 	
     public static void CompararArquivos(String file1, String file2) {
     	 // Criação dos objetos File para os arquivos FASTA
-        File Fasta1 = new File(file1);
-        File Fasta2 = new File(file2);
 
         try {
         	// Leitura das sequências dos arquivos FASTA
@@ -64,7 +62,7 @@ public class FastaComparar {
      * @return A sequência contida no arquivo FASTA como uma String.
      * @throws IOException Se ocorrer um erro na leitura do arquivo.
      */
-    private static String readFastaSequence(String filename) throws IOException {
+    public static String readFastaSequence(String filename) throws IOException {
         // StringBuilder para armazenar a sequência completa
         StringBuilder sequence = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
@@ -89,7 +87,7 @@ public class FastaComparar {
      * @param seq2 A segunda sequência.
      * @return O número de caracteres idênticos nas mesmas posições em ambas as sequências.
      */
-    private static int calculateSimilarity(String seq1, String seq2) {
+    public static int calculateSimilarity(String seq1, String seq2) {
         // Determina o comprimento mínimo entre as duas sequências
         int minLength = Math.min(seq1.length(), seq2.length());
         int similarity = 0;
@@ -113,7 +111,7 @@ public class FastaComparar {
      * @param seq2 A segunda sequência.
      * @return Uma String contendo as duas sequências alinhadas, com hífens nas posições diferentes.
      */
-    private static String getCompatibleSequences(String seq1, String seq2) {
+    public static String getCompatibleSequences(String seq1, String seq2) {
         // StringBuilders para armazenar as sequências compatíveis
         StringBuilder compatibleSeq1 = new StringBuilder();
         StringBuilder compatibleSeq2 = new StringBuilder();
@@ -143,7 +141,7 @@ public class FastaComparar {
      * @param outputFilename O nome do arquivo de saída.
      * @throws IOException Se ocorrer um erro na escrita do arquivo.
      */
-    private static void generateComparisonTextFile(String result, String outputFilename) throws IOException {
+    public static void generateComparisonTextFile(String result, String outputFilename) throws IOException {
         // Utiliza FileWriter para escrever o resultado no arquivo de saída
         try (FileWriter writer = new FileWriter(outputFilename)) {
             writer.write(result);

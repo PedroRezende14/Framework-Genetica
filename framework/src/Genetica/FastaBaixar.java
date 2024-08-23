@@ -50,7 +50,7 @@ public class FastaBaixar{
      * @return Uma String contendo o conteúdo FASTA, ou null se não for encontrado.
      */
     
-    private static String getFastaContent(String scientificName) {
+    public static String getFastaContent(String scientificName) {
     	// Implementação do método
         try {
             String encodedName = URLEncoder.encode(scientificName, StandardCharsets.UTF_8.toString());
@@ -122,7 +122,7 @@ public class FastaBaixar{
      * @return O ID da sequência como uma String, ou null se não for encontrado.
      */
     
-    private static String extractIdFromXml(String xmlResponse) {
+    public static String extractIdFromXml(String xmlResponse) {
         // Implementação do método
         if (xmlResponse == null) {
             return null;
@@ -145,7 +145,7 @@ public class FastaBaixar{
      * @param scientificName O nome científico da espécie, usado para nomear o arquivo.
      * @param fastaContent O conteúdo FASTA a ser salvo.
      */
-    private static void saveFastaFile(String scientificName, String fastaContent) {
+    public static void saveFastaFile(String scientificName, String fastaContent) {
     	// Implementação do método
         try (FileWriter fileWriter = new FileWriter(scientificName + ".fasta")) {
             fileWriter.write(fastaContent);
@@ -161,7 +161,7 @@ public class FastaBaixar{
      * @param scientificName O nome científico da espécie.
      * @return true se o arquivo não existir e puder ser baixado, false caso contrário.
      */
-    private static boolean Verificado(String scientificName) {
+    public static boolean Verificado(String scientificName) {
         // Implementação do método
     		String fasta = scientificName+".fasta";
             File arquivo = new File(fasta);
@@ -173,4 +173,5 @@ public class FastaBaixar{
                 return true;
             }	
     }
+    
 }
