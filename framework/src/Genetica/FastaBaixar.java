@@ -114,6 +114,7 @@ public class FastaBaixar{
         connection.disconnect();
         return content.toString();
     }
+    
 
     /**
      * Extrai o ID da sequência do XML de resposta do NCBI.
